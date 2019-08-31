@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["clientes", "Regresar"]) ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>
+        Nueva informacion de cliente
+    </h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<?php
+    echo $this->tag->form(
+        [
+            "clientes/create",
+            "autocomplete" => "off",
+            "class" => "form-horizontal"
+        ]
+    );
+?>
+
+<div class="form-group">
+    <label for="fieldName" class="col-sm-2 control-label">Nombre</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["name", "size" => 30, "class" => "form-control", "id" => "fieldName"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldEmailid" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["emailid", "size" => 30, "class" => "form-control", "id" => "fieldEmailid"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldAporte" class="col-sm-2 control-label">Aporte</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["aporte", "type" => "number", "class" => "form-control", "id" => "fieldAporte"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldMes" class="col-sm-2 control-label">Mes</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["mes", "size" => 30, "class" => "form-control", "id" => "fieldMes"]) ?>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->tag->submitButton(["Guardar informacion", "class" => "btn btn-default"]) ?>
+    </div>
+</div>
+
+<?php echo $this->tag->endForm(); ?>
